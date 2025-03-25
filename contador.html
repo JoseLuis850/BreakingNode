@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contador de Palabras</title>
+  </head>
+  <body>
+    <h1>Contador de Palabras</h1>
+    <input type="file" id="archivo" />
+    <p id="resultado"></p>
+
+    <script>
+      function contarPalabras(archivo) {
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+          const datos = event.target.result;
+          const palabras = datos
+            .split(/\s+/)
+            .filter((palabra) => palabra.length > 0);
+          const numWords = palabras.length;
+
+          document.getElementById(
+            "resultado"
+          ).textContent = `Número de palabras: ${numWords}`;
+        };
+
+        reader.readAsText(archivo);
+      }
+
+      document
+        .getElementById("archivo")
+        .addEventListener("change", function (event) {
+          const archivo = event.target.files[0];
+          if (archivo) {
+            contarPalabras(archivo);
+          }
+        });
+    </script>
+  </body>
+</html>
