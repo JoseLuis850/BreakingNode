@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -21,9 +21,8 @@
             .filter((palabra) => palabra.length > 0);
           const numWords = palabras.length;
 
-          document.getElementById(
-            "resultado"
-          ).textContent = `Número de palabras: ${numWords}`;
+          document.getElementById("resultado").textContent =
+            `Número de palabras: ${numWords}`;
         };
 
         reader.readAsText(archivo);
